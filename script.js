@@ -97,24 +97,20 @@ const init = () => {
       //If array contains clicked value replace the matched Dash with Letter
       if (charArray.includes(button.innerText)) {
         charArray.forEach((char, index) => {
-          //If character in array is same as clicked button
           if (char === button.innerText) {
             button.classList.add("correct");
-            //Replace dash with letter
             inputSpace[index].innerText = char;
-            //increment counter
+            
             winCount += 1;
-            //If winCount equals word length
+            
             if (winCount == charArray.length) {
               resultText.innerHTML = "You Won";
               startBtn.innerText = "Restart";
-              //block all buttons
               blocker();
             }
           }
         });
       } else {
-        //lose count
         button.classList.add("incorrect");
         lossCount -= 1;
         document.getElementById(
@@ -129,11 +125,10 @@ const init = () => {
         }
       }
 
-      //Disable clicked buttons
+      
       button.disabled = true;
     });
 
-    //Append generated buttons to the letters container
     letterContainer.appendChild(button);
   }
 };
